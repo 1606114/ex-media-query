@@ -1,61 +1,75 @@
-
-/* RESETS */
 body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+
+  height: 100vh;
+  background-color: yellow;
+
+  display: grid;
+
+  grid-template-rows: 0.1fr 0.8fr 0.1fr;
+  grid-template-columns: 0.3fr 0.7fr;
+
+  grid-template-areas:
+    "cabecalho cabecalho"
+    "aolado principal"
+    "rodape rodape";
+
+  gap: 4px;
+  padding: 4px;
 }
 
-/* Layout */
-body {
-    padding-top: 10px;
+@media (max-width: 750px) {
+  body {
+    grid-template-rows: 0.1fr 0.2fr 0.6fr 0.1fr;
+    grid-template-columns: 1fr;
 
-    background-color: #8DD7CF;
-
-    height: 100vh;
-    box-sizing: border-box;
-
-    display: flex;
-
-    justify-content: center;
-    align-items: start;
+    grid-template-areas:
+      "cabecalho"
+      "aolado"
+      "principal"
+      "rodape";
+  }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 350px) {
     body {
-        background-color: #FBE192;
-
-        justify-content: center;
-        align-items: center;
+      grid-template-rows: 0.1fr 0.8fr 0.1fr;
+      grid-template-columns: 1fr;
+  
+      grid-template-areas:
+        "cabecalho"
+        "principal"
+        "rodape";
     }
-}
 
-@media (max-width: 300px) {
-    body {
-        background-color: #C4BDAF;
-    }
-}
-
-/* Componentes */
-.card {
-    background-color: white;
-    border: #CAD5DD 1px solid;
-    width: 200px;
-    padding: 10px;
-
-    text-align: center;
-}
-
-@media (max-width: 768px) {
-    .card {
-        background-color: #E3CFF3;
-        border: #9D56D5 1px solid;
-        color: #1AAE9F;
-    }
-}
-
-@media (max-width: 300px) {
-    .card {
+    .aolado {
         display: none;
     }
+  }
+
+h1 {
+  margin: 0;
+}
+
+.cabecalho {
+  background-color: green;
+  grid-area: cabecalho;
+}
+
+.principal {
+  background-color: blue;
+  grid-area: principal;
+}
+
+.aolado {
+  background-color: purple;
+  grid-area: aolado;
+}
+
+.rodape {
+  background-color: green;
+  grid-area: rodape;
 }
